@@ -1,78 +1,113 @@
-/* General Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
+  font-family: 'Playfair Display', serif;
   background-color: #000;
   color: #fff;
-  font-family: 'Playfair Display', serif;
   overflow-x: hidden;
 }
 
 /* Hero Section */
 .hero {
   position: relative;
-  background: url('images/hero-bg.png') no-repeat center center/cover;
   height: 100vh;
+  background: url('images/hero-bg.png') center/cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  background-attachment: fixed;
+  overflow: hidden;
 }
 
 .overlay {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.65);
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
 }
 
-.hero-content {
-  position: relative;
-  z-index: 2;
-  animation: fadeIn 2s ease-in-out;
+/* Particle Animation */
+.particles::before, .particles::after {
+  content: '';
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(rgba(212,175,55,0.15), transparent 70%);
+  animation: shimmer 12s linear infinite;
 }
+
+@keyframes shimmer {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.hero-content { position: relative; z-index: 2; animation: fadeIn 2s ease-in; }
+
+.logo { width: 120px; margin-bottom: 10px; }
 
 .hero h1 {
-  font-size: 6rem;
-  color: #d4af37;
   font-family: 'Cinzel', serif;
+  font-size: 5rem;
   letter-spacing: 3px;
-  margin-bottom: 10px;
-  text-shadow: 0 0 25px rgba(212, 175, 55, 0.6);
-  max-width: 90%;
-  margin-left: auto;
-  margin-right: auto;
+  color: #d4af37;
+  text-shadow: 0 0 25px rgba(212,175,55,0.5);
+  animation: goldGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes goldGlow {
+  from { text-shadow: 0 0 10px #d4af37; }
+  to { text-shadow: 0 0 30px #ffefb0; }
 }
 
 .slogan {
-  font-size: 1.5rem;
   color: #e5c97a;
+  font-size: 1.5rem;
   margin-bottom: 25px;
+  text-transform: uppercase;
 }
 
 .btn {
-  background-color: #d4af37;
+  background: linear-gradient(90deg, #d4af37, #b8932b);
   color: #000;
   padding: 12px 35px;
-  text-decoration: none;
   border-radius: 30px;
   font-weight: bold;
+  text-decoration: none;
   transition: 0.3s;
 }
 
-.btn:hover {
-  background-color: #fff;
-  color: #000;
+.btn:hover { background: #fff; }
+
+/* Founder Section */
+.founder {
+  background: radial-gradient(circle at top, #111, #000);
+  padding: 100px 20px;
+  text-align: center;
+  position: relative;
 }
 
-/* Products Section */
+.frame {
+  border: 2px solid #d4af37;
+  padding: 40px 25px;
+  max-width: 900px;
+  margin: auto;
+  border-radius: 20px;
+  box-shadow: 0 0 25px rgba(212,175,55,0.3);
+}
+
+.founder h2 {
+  font-family: 'Cinzel', serif;
+  color: #d4af37;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.founder p {
+  color: #ddd;
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+/* Products */
 .products {
   padding: 80px 25px;
   text-align: center;
@@ -80,117 +115,65 @@ body {
 }
 
 .products h2 {
-  font-family: 'Cinzel', serif;
   color: #d4af37;
+  font-family: 'Cinzel', serif;
   font-size: 2.8rem;
   margin-bottom: 50px;
-  text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
 }
 
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 35px;
-  max-width: 1300px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
   margin: auto;
 }
 
 .product {
-  background: linear-gradient(145deg, #0f0f0f, #1a1a1a);
+  background: linear-gradient(145deg, #111, #1a1a1a);
   border: 1px solid #333;
   border-radius: 12px;
   padding: 20px;
-  transition: transform 0.4s ease, border-color 0.3s ease;
-  box-shadow: 0 0 10px rgba(212, 175, 55, 0.15);
-  opacity: 0;
-  transform: translateY(40px);
-  animation: fadeUp 1s forwards;
+  transition: 0.4s;
+  box-shadow: 0 0 10px rgba(212,175,55,0.15);
 }
-
-.product:nth-child(odd) { animation-delay: 0.2s; }
-.product:nth-child(even) { animation-delay: 0.4s; }
 
 .product:hover {
-  transform: translateY(-10px);
+  transform: translateY(-8px);
   border-color: #d4af37;
-  box-shadow: 0 0 25px rgba(212, 175, 55, 0.25);
+  box-shadow: 0 0 25px rgba(212,175,55,0.25);
 }
 
-.product img {
-  width: 100%;
-  border-radius: 10px;
-  margin-bottom: 15px;
-}
+.product img { width: 100%; border-radius: 10px; margin-bottom: 10px; }
 
-.product h3 {
-  font-family: 'Cinzel', serif;
-  color: #d4af37;
-  margin-bottom: 10px;
-  font-size: 1.3rem;
-}
-
-.product p {
-  color: #ccc;
-  font-size: 0.95rem;
-  line-height: 1.5;
-}
-
-/* Founder Section */
-.founder {
-  background: linear-gradient(to bottom, #0a0a0a, #111);
-  padding: 80px 30px;
-  text-align: center;
-  border-top: 1px solid #222;
-}
-
-.founder h2 {
-  font-family: 'Cinzel', serif;
-  color: #d4af37;
-  font-size: 2.5rem;
-  margin-bottom: 25px;
-  text-shadow: 0 0 15px rgba(212,175,55,0.3);
-}
-
-.founder p {
-  color: #dcdcdc;
-  max-width: 900px;
-  margin: auto;
-  font-size: 1.05rem;
-  line-height: 1.8;
-}
+.product h3 { color: #d4af37; font-family: 'Cinzel', serif; font-size: 1.3rem; margin-bottom: 10px; }
+.product p { color: #bbb; font-size: 0.95rem; }
 
 /* Footer */
 footer {
   text-align: center;
   padding: 40px 20px;
-  background-color: #000;
-  color: #ccc;
+  background: #000;
+  color: #888;
   font-size: 0.9rem;
-  border-top: 1px solid #222;
+  border-top: 1px solid #333;
 }
 
 footer .socials a {
   color: #d4af37;
   text-decoration: none;
   margin: 0 8px;
-  font-weight: bold;
+  transition: 0.3s;
 }
 
 footer .socials a:hover { color: #fff; }
 
 /* Animations */
-@keyframes fadeIn { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
-@keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeIn { from {opacity:0; transform:translateY(30px);} to {opacity:1; transform:translateY(0);} }
 
-/* ✅ Responsive Fixes */
+/* Responsive */
 @media (max-width: 768px) {
-  .hero h1 { font-size: 3.5rem; letter-spacing: 1px; max-width: 95%; padding: 0 10px; }
+  .hero h1 { font-size: 3rem; }
   .slogan { font-size: 1.2rem; }
   .btn { padding: 10px 25px; }
-}
-
-@media (max-width: 480px) {
-  .hero h1 { font-size: 2.6rem; line-height: 1.2; }
-  .slogan { font-size: 1rem; }
-  .product p { font-size: 0.9rem; }
 }
