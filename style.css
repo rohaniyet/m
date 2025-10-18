@@ -1,135 +1,154 @@
-/* Global Reset */
+/* ===== GENERAL RESET ===== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
 body {
   font-family: 'Poppins', sans-serif;
   background-color: #000;
-  color: #f1f1f1;
-  line-height: 1.6;
+  color: #f5f5f5;
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
-/* Hero Section */
+/* ===== HERO SECTION ===== */
 .hero {
   position: relative;
   height: 100vh;
-  background: url('https://i.ibb.co/Qb0td1b/golden-mist.jpg') no-repeat center center/cover;
+  background: url('images/hero-bg.jpg') no-repeat center center/cover;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   text-align: center;
+  color: gold;
+  overflow: hidden;
 }
+
 .hero::before {
   content: "";
   position: absolute;
   top: 0; left: 0;
   width: 100%; height: 100%;
-  background: rgba(0,0,0,0.8);
+  background: rgba(0,0,0,0.7);
   z-index: 1;
 }
+
 .hero-content {
   position: relative;
   z-index: 2;
-  color: gold;
-  animation: fadeIn 2s ease-in;
+  animation: fadeInUp 2s ease-in-out;
 }
+
 .brand-name {
   font-family: 'Playfair Display', serif;
   font-size: 4em;
-  letter-spacing: 6px;
-  text-shadow: 0 0 20px gold;
-}
-.tagline {
-  font-style: italic;
-  color: #d4af37;
-  font-size: 1.3em;
-  margin: 15px 0;
-}
-.cta-btn {
-  background: #d4af37;
-  border: none;
-  color: black;
-  padding: 12px 30px;
-  font-size: 1em;
-  cursor: pointer;
-  border-radius: 25px;
-  transition: 0.3s;
-}
-.cta-btn:hover {
-  background: #f9d776;
+  letter-spacing: 8px;
+  text-shadow: 0 0 25px gold;
 }
 
-/* About Section */
+.tagline {
+  color: #d4af37;
+  font-style: italic;
+  font-size: 1.4em;
+  margin: 20px 0;
+}
+
+.cta-btn {
+  background: #d4af37;
+  color: #000;
+  padding: 14px 32px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.cta-btn:hover {
+  background: #fff2b0;
+  transform: scale(1.05);
+}
+
+/* ===== ABOUT ===== */
 .about {
-  padding: 80px 10%;
   background: #111;
   text-align: center;
+  padding: 80px 10%;
 }
+
 .about h2 {
   font-family: 'Playfair Display', serif;
   color: #d4af37;
-  margin-bottom: 20px;
   font-size: 2em;
-}
-.about p {
-  max-width: 800px;
-  margin: auto;
-  color: #ccc;
-  font-size: 1.1em;
+  margin-bottom: 25px;
 }
 
-/* Collection */
+.about p {
+  color: #ccc;
+  font-size: 1.1em;
+  line-height: 1.8;
+  max-width: 850px;
+  margin: auto;
+}
+
+/* ===== COLLECTION ===== */
 .collection {
   background: #0a0a0a;
   padding: 80px 10%;
   text-align: center;
 }
+
 .collection h2 {
-  color: #d4af37;
   font-family: 'Playfair Display', serif;
+  color: #d4af37;
   margin-bottom: 40px;
 }
+
 .product-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 30px;
 }
+
 .card {
   background: #111;
-  border: 1px solid #333;
   border-radius: 15px;
   overflow: hidden;
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-.card img {
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
-}
-.card h3 {
-  margin-top: 15px;
-  color: #d4af37;
-}
-.card p {
-  color: #aaa;
-  padding: 10px 20px 20px;
-}
-.card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 20px gold;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  border: 1px solid #333;
 }
 
-/* Founder */
+.card img {
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.card:hover img {
+  transform: scale(1.05);
+}
+
+.card h3 {
+  color: #d4af37;
+  margin: 15px 0 5px 0;
+}
+
+.card p {
+  color: #aaa;
+  padding-bottom: 20px;
+}
+
+/* ===== FOUNDER ===== */
 .founder {
   background: #111;
-  color: #ccc;
-  padding: 60px 10%;
   text-align: center;
+  padding: 60px 10%;
   font-style: italic;
 }
+
 .founder blockquote {
   font-family: 'Playfair Display', serif;
   color: #d4af37;
@@ -137,53 +156,57 @@ body {
   margin-bottom: 10px;
 }
 
-/* Social Links */
+/* ===== SOCIAL ===== */
 .social {
   background: #0a0a0a;
-  padding: 60px 10%;
   text-align: center;
+  padding: 60px 10%;
 }
+
 .social h2 {
   color: #d4af37;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 }
+
 .icons a {
   margin: 10px;
   color: gold;
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 500;
   transition: color 0.3s;
 }
+
 .icons a:hover {
   color: #fff;
 }
 
-/* Contact */
+/* ===== CONTACT ===== */
 .contact {
   background: #111;
-  padding: 60px 10%;
   text-align: center;
-  color: #ccc;
+  padding: 60px 10%;
 }
+
 .contact a {
   color: #d4af37;
   text-decoration: none;
 }
+
 .contact a:hover {
   text-decoration: underline;
 }
 
-/* Footer */
+/* ===== FOOTER ===== */
 footer {
   background: #000;
   text-align: center;
   padding: 20px;
-  color: #777;
+  color: #888;
   border-top: 1px solid #222;
 }
 
-/* Animations */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(30px); }
+/* ===== ANIMATIONS ===== */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(50px); }
   to { opacity: 1; transform: translateY(0); }
 }
