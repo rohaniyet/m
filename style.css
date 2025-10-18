@@ -1,4 +1,4 @@
-/* ===== GENERAL RESET ===== */
+/* General Reset */
 * {
   margin: 0;
   padding: 0;
@@ -6,103 +6,80 @@
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
   background-color: #000;
-  color: #f5f5f5;
+  color: #fff;
+  font-family: 'Playfair Display', serif;
   overflow-x: hidden;
-  scroll-behavior: smooth;
 }
 
-/* ===== HERO SECTION ===== */
+/* Hero Section */
 .hero {
   position: relative;
-  height: 100vh;
   background: url('images/hero-bg.jpg') no-repeat center center/cover;
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  color: gold;
-  overflow: hidden;
 }
 
-.hero::before {
-  content: "";
+.overlay {
   position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0,0,0,0.7);
-  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
 }
 
 .hero-content {
   position: relative;
   z-index: 2;
-  animation: fadeInUp 2s ease-in-out;
 }
 
-.brand-name {
-  font-family: 'Playfair Display', serif;
-  font-size: 4em;
-  letter-spacing: 8px;
-  text-shadow: 0 0 25px gold;
-}
-
-.tagline {
+.hero h1 {
+  font-size: 6rem;
   color: #d4af37;
-  font-style: italic;
-  font-size: 1.4em;
-  margin: 20px 0;
+  font-family: 'Cinzel', serif;
+  letter-spacing: 3px;
+  margin-bottom: 10px;
+  text-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.cta-btn {
-  background: #d4af37;
+.hero .slogan {
+  font-size: 1.5rem;
+  color: #e5c97a;
+  margin-bottom: 20px;
+}
+
+.btn {
+  background-color: #d4af37;
   color: #000;
-  padding: 14px 32px;
-  border: none;
+  padding: 12px 30px;
+  text-decoration: none;
   border-radius: 30px;
-  cursor: pointer;
   font-weight: bold;
-  transition: all 0.3s ease;
+  transition: 0.3s;
 }
 
-.cta-btn:hover {
-  background: #fff2b0;
-  transform: scale(1.05);
+.btn:hover {
+  background-color: #fff;
 }
 
-/* ===== ABOUT ===== */
-.about {
-  background: #111;
+/* Products Section */
+.products {
+  padding: 80px 20px;
   text-align: center;
-  padding: 80px 10%;
-}
-
-.about h2 {
-  font-family: 'Playfair Display', serif;
-  color: #d4af37;
-  font-size: 2em;
-  margin-bottom: 25px;
-}
-
-.about p {
-  color: #ccc;
-  font-size: 1.1em;
-  line-height: 1.8;
-  max-width: 850px;
-  margin: auto;
-}
-
-/* ===== COLLECTION ===== */
-.collection {
   background: #0a0a0a;
-  padding: 80px 10%;
-  text-align: center;
 }
 
-.collection h2 {
-  font-family: 'Playfair Display', serif;
+.products h2 {
+  font-family: 'Cinzel', serif;
   color: #d4af37;
+  font-size: 2.5rem;
   margin-bottom: 40px;
 }
 
@@ -110,103 +87,79 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 30px;
+  max-width: 1200px;
+  margin: auto;
 }
 
-.card {
+.product {
   background: #111;
-  border-radius: 15px;
-  overflow: hidden;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
   border: 1px solid #333;
+  border-radius: 10px;
+  padding: 20px;
+  transition: transform 0.3s ease;
 }
 
-.card img {
+.product:hover {
+  transform: translateY(-10px);
+  border-color: #d4af37;
+}
+
+.product img {
   width: 100%;
-  height: 360px;
-  object-fit: cover;
-  transition: transform 0.6s ease;
+  border-radius: 10px;
+  margin-bottom: 15px;
 }
 
-.card:hover img {
-  transform: scale(1.05);
-}
-
-.card h3 {
+.product h3 {
+  font-family: 'Cinzel', serif;
   color: #d4af37;
-  margin: 15px 0 5px 0;
-}
-
-.card p {
-  color: #aaa;
-  padding-bottom: 20px;
-}
-
-/* ===== FOUNDER ===== */
-.founder {
-  background: #111;
-  text-align: center;
-  padding: 60px 10%;
-  font-style: italic;
-}
-
-.founder blockquote {
-  font-family: 'Playfair Display', serif;
-  color: #d4af37;
-  font-size: 1.5em;
   margin-bottom: 10px;
 }
 
-/* ===== SOCIAL ===== */
-.social {
-  background: #0a0a0a;
+/* Footer */
+footer {
   text-align: center;
-  padding: 60px 10%;
+  padding: 30px;
+  background-color: #000;
+  color: #ccc;
+  font-size: 0.9rem;
 }
 
-.social h2 {
+footer .socials a {
   color: #d4af37;
-  margin-bottom: 25px;
-}
-
-.icons a {
-  margin: 10px;
-  color: gold;
   text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s;
+  margin: 0 5px;
 }
 
-.icons a:hover {
+footer .socials a:hover {
   color: #fff;
 }
 
-/* ===== CONTACT ===== */
-.contact {
-  background: #111;
-  text-align: center;
-  padding: 60px 10%;
+/* ✅ Responsive Fixes */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 3rem;
+    letter-spacing: 1px;
+    max-width: 95%;
+    padding: 0 10px;
+  }
+
+  .hero .slogan {
+    font-size: 1.1rem;
+  }
+
+  .btn {
+    padding: 10px 25px;
+  }
 }
 
-.contact a {
-  color: #d4af37;
-  text-decoration: none;
-}
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 2.4rem;
+    line-height: 1.2;
+  }
 
-.contact a:hover {
-  text-decoration: underline;
-}
-
-/* ===== FOOTER ===== */
-footer {
-  background: #000;
-  text-align: center;
-  padding: 20px;
-  color: #888;
-  border-top: 1px solid #222;
-}
-
-/* ===== ANIMATIONS ===== */
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(50px); }
-  to { opacity: 1; transform: translateY(0); }
+  .hero .slogan {
+    font-size: 1rem;
+  }
 }
